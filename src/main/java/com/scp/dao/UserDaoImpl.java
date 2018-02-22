@@ -4,18 +4,22 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.scp.model.User;
+
+//@Repository
 @Repository("daoImpl")
 public class UserDaoImpl {
 	
+	@Autowired
 	public SessionFactory factory;
 	
 	public SessionFactory getFactory() {
 		return factory;
 	}
-
-
 
 	public void setFactory(SessionFactory factory) {
 		System.out.println("setting factory.."+factory);
@@ -29,9 +33,9 @@ public class UserDaoImpl {
 		session.close();
 		return list;
 	}
-/*
+
 	public boolean deleteById(int id) {
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
 		User user = (User) session.get(User.class, id);
 		session.delete(user);
@@ -39,20 +43,20 @@ public class UserDaoImpl {
 		session.close();
 		return true;
 	}
-
+	
 	public User getUserById(int id) {
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = factory.openSession();
 		User user = (User) session.get(User.class, id);
 		session.close();
 		return user;
 	}
-
+	
 	public boolean addUser(User u) {
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(u);
 		transaction.commit();
 		session.close();
 		return true;
-	}*/
+	}
 }

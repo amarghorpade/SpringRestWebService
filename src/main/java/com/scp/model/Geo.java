@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="geo_RestWeb")
+@Table(name="geo_tbl")
 public class Geo 
 {
 	@Id

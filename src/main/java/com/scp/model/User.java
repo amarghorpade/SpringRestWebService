@@ -8,7 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user_RestWeb")
+@Table(name="user_tbl")
 public class User 
 {
 	@Id

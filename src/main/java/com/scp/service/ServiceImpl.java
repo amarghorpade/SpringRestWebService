@@ -15,6 +15,7 @@ import com.scp.model.User;
 
 //@Transactional
 @Service("serviceImpl")
+//@Service
 public class ServiceImpl 
 {
 	
@@ -29,23 +30,21 @@ public class ServiceImpl
 		this.daoImpl = daoImpl;
 	}
 	
-	@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 	public List getAll() {
 		System.out.println("in service layer*************");
-		//return daoImpl.getAll();
-		return null;
+		return daoImpl.getAll();
 	}
-/*
+
 	public boolean deleteById(int id) {
 
 		return daoImpl.deleteById(id);
 	}
-
+	
 	public User getUserById(int id) {
 	
 		return daoImpl.getUserById(id);
 	}
-
+	/*
 	public boolean addUser(User user) {
 		
 		return daoImpl.addUser(user); 

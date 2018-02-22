@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="comp_RestWeb")
+@Table(name="comp_tbl")
 public class Company {
 	
 	@Id

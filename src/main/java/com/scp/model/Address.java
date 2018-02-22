@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Addr_RestWeb")
+@Table(name = "Addr_tbl")
 public class Address {
 	private String street;
 	private String suite;

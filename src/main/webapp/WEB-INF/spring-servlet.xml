@@ -18,7 +18,7 @@
 	<!-- DataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/springwebservice" />
+		<property name="url" value="jdbc:mysql://localhost:3306/webservicetbl" />
 		<property name="username" value="root" />
 		<property name="password" value="system" />
 	</bean>
@@ -31,7 +31,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.scp.model"></property>
@@ -39,22 +39,9 @@
 	<bean id="dao" class="com.scp.dao.UserDaoImpl">
 		<property name="factory" ref="sessionFactory" />
 	</bean>
-	
 
-	
 	<bean id="service" class="com.scp.service.ServiceImpl">
 		<property name="daoImpl" ref="dao" />
 	</bean>
 
-<!-- 	<bean id="controller" class="com.scp.controller.RestControllerDemo">
-		<property name="serviceImpl" ref="service" />
-	</bean>
- -->
-	<!-- Transaction -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
-	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>
